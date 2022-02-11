@@ -17,12 +17,12 @@ public class MyGenerator implements IdentifierGenerator {
 		for (int i = 0; i < 9; i++) {
 			int n;
 			do {
-			  n = rand.nextInt(10) + 0;
+				n = rand.nextInt(10) + 0;
 			}
 			while(n==0 && i==0);
 			
 			id += Integer.toString(n);
-		  }
+		}
 		return Long.parseLong(id);
     }
 }

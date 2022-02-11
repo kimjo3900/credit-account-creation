@@ -29,20 +29,11 @@ public class CustomerResource {
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 
-    /*
-    @GetMapping("/find/{id}")
-    public ResponseEntity<Customer> getCustomerById (@PathVariable("id") Long id) {
-        Customer customer = customerService.findCustomerById(id);
-        return new ResponseEntity<>(customer, HttpStatus.OK);
-    }
-    */
-
     @GetMapping("/find/{username}")
     public ResponseEntity<Customer> getCustomerByUsername (@PathVariable("username") String username) {
         Customer customer = customerService.findCustomerByUsername(username);
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
-
 
     @PostMapping("/add")
     public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer) {
@@ -56,9 +47,9 @@ public class CustomerResource {
         return new ResponseEntity<>(updateCustomer, HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Customer> deleteCustomer(@PathVariable("id") Long id) {
-        customerService.deleteCustomer(id);
+    @DeleteMapping("/delete/{username}")
+    public ResponseEntity<Customer> deleteCustomer(@PathVariable("username") String username) {
+        customerService.deleteCustomer(username);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }   

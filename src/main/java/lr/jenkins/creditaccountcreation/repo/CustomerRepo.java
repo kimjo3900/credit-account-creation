@@ -4,8 +4,8 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import lr.jenkins.creditaccountcreation.model.Customer;
 
-public interface CustomerRepo extends JpaRepository<Customer, Long> {
-    void deleteCustomerById(Long id);
+public interface CustomerRepo extends JpaRepository<Customer, String> {
+    void deleteCustomerByUsername(String username);
 
     Optional<Customer> findCustomerById(Long id);
 

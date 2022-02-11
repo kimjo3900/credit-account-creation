@@ -37,18 +37,13 @@ public class CustomerService {
             .orElseThrow(() -> new UserNotFoundException("User with id " + id + " was not found"));
     }
 
-
     public Customer findCustomerByUsername(String username) {
         return customerRepo.findCustomerByUsername(username)
             .orElseThrow(() -> new UserNotFoundException("User with username " + username + " was not found"));
     }
 
     @Transactional
-    public void deleteCustomer(Long id) {
-        customerRepo.deleteCustomerById(id);
-    }
-
-    public Customer findCustomerByUName(String username) {
-        return null;
+    public void deleteCustomer(String username) {
+        customerRepo.deleteCustomerByUsername(username);
     }
 }
